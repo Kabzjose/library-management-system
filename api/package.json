@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "start:dev": "nest start --watch",
     "start": "node dist/main.js",
     "prisma:generate": "prisma generate",
     "prisma:seed": "tsx prisma/seed.ts"
@@ -18,6 +19,7 @@
     "@nestjs/jwt": "^12.0.5",
     "@nestjs/mapped-types": "^12.0.1",
     "@nestjs/passport": "^12.0.2",
+    "@nestjs/platform-express": "^11.2.10",
     "@nestjs/throttler": "^6.7.1",
     "@prisma/client": "^6.19.3",
     "bcrypt": "^6.0.0",

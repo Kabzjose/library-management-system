@@ -49,3 +49,4 @@ next-env.d.ts
 files/
 dev.db
 skills-lock.json
+dist/
