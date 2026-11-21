@@ -17,8 +17,8 @@ export class BooksService {
     }
   }
 
-  async findAll(params: { genreId?: number; search?: string; page: number; limit: number }) {
-    const { genreId, search, page, limit } = params;
+  async findAll(params: { genreId?: number; search?: string; sortBy?:string; page: number; limit: number }) {
+    const { genreId, search, sortBy,page, limit } = params;
 
     const where: Prisma.BookWhereInput = {};
     if (genreId) where.genreId = genreId;
@@ -33,7 +33,7 @@ export class BooksService {
       this.prisma.book.findMany({
         where,
         include: { genre: true },
-        orderBy: { title: 'asc' },
+        orderBy: sortBy === 'author' ? { author: 'asc' } : { title: 'asc' }, 
         skip: (page - 1) * limit,
         take: limit,
       }),
